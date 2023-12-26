@@ -1,4 +1,4 @@
-import 'booking.dart';
+import 'Booking.dart';
 
 class Cancellation {
   String rideNo = "";
@@ -8,7 +8,9 @@ class Cancellation {
   String rideCharge = "";
   String customerId = "";
 
-  Cancellation(booking);
+  void someFunction(Booking bookingInstance) {
+    // Your function logic here
+  }
 
   void displayCancellationDetails() {
     // create displayCancellationDetails function

@@ -1,11 +1,11 @@
-import 'customer.dart';
+import 'Customer.dart';
 
 class OnlinePayment {
   String bankName = "";
   String bankAccountNumber = "";
   String customerId = "";
   String paymentId = "";
-  List<customer> customers = [];
+  List<Customer> customers = [];
 
   void processPayment() {
     // create processPayment function

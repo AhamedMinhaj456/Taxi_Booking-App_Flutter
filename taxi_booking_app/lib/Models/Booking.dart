@@ -1,4 +1,4 @@
-import 'customer.dart';
+import 'Customer.dart';
 
 class Booking {
   String rideNo = "";

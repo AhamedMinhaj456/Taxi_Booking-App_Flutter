@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+
+import 'package:taxi_booking_app/Models/Login.dart';
 import 'package:taxi_booking_app/authentication/login.dart';
+import 'package:taxi_booking_app/authentication/signup.dart';
 import 'firebase_options.dart';
 
 
@@ -35,6 +38,7 @@ class MyApp extends StatelessWidget {
       ),
       home: // const MyHomePage(title: 'RuhunaRide'),
        const SignupScreen(),
+       
     );
   }
 }

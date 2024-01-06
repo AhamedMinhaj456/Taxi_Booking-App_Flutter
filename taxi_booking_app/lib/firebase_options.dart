@@ -69,6 +69,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1024384454422',
     projectId: 'taxibookingapp-grp52',
     storageBucket: 'taxibookingapp-grp52.appspot.com',
+    androidClientId: '1024384454422-su4p8kd3qq05k1u2ianbrk41uv9njsb2.apps.googleusercontent.com',
+    iosClientId: '1024384454422-mgfk2oqiufi06di9cdgarqa31eel0vpp.apps.googleusercontent.com',
     iosBundleId: 'com.example.taxiBookingApp',
   );
 }

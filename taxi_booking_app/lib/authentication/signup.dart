@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:taxi_booking_app/Models/Login.dart';
 import 'package:taxi_booking_app/authentication/login.dart';
 import 'package:taxi_booking_app/methods/common_methods.dart';
 import 'package:taxi_booking_app/pages/home_page.dart';
@@ -57,8 +56,10 @@ class _SignupScreenState extends State<SignupScreen> {
             .createUserWithEmailAndPassword(
       email: emailTextEditingController.text.trim(),
       password: passwordTextEditingController.text.trim(),
+    
+    // ignore: body_might_complete_normally_catch_error
     ).catchError((errorMessage) {
-      // print("Error during user registration: $errorMessage");
+      
       Navigator.pop(context);
       cMethods.displaySnackBar(errorMessage.toString(), context);
     })).user;

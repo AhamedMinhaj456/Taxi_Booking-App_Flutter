@@ -1,87 +1,26 @@
 {
   "project_info": {
-    "project_number": "1024384454422",
-    "project_id": "taxibookingapp-grp52",
-    "storage_bucket": "taxibookingapp-grp52.appspot.com"
+    "project_number": "362838339117",
+    "project_id": "taxi-booking-app-9d565",
+    "storage_bucket": "taxi-booking-app-9d565.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1024384454422:android:5834778949287085110a37",
+        "mobilesdk_app_id": "1:362838339117:android:bb299a78f6392c15e412a4",
         "android_client_info": {
-          "package_name": "com.example.taxi_booking_app"
+          "package_name": "com.Group52.Taximobileapp"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "1024384454422-36vlc7ngu49oig46dv5cqo16f5noqfvg.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBId-FbSVtq1HuKIQme4JJbuyQ3lu3xyDw"
+          "current_key": "AIzaSyBY8UZ-CDeg0Bk5ISZ6TDpzmKxoHVwDQZM"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1024384454422-36vlc7ngu49oig46dv5cqo16f5noqfvg.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "1024384454422-mgfk2oqiufi06di9cdgarqa31eel0vpp.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.taxiBookingApp"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1024384454422:android:681a8069f813d1b0110a37",
-        "android_client_info": {
-          "package_name": "com.grp52.taxiMobileApp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1024384454422-su4p8kd3qq05k1u2ianbrk41uv9njsb2.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.grp52.taxiMobileApp",
-            "certificate_hash": "dccab369cd158c39f606ea345eeefc8353bc359d"
-          }
-        },
-        {
-          "client_id": "1024384454422-36vlc7ngu49oig46dv5cqo16f5noqfvg.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBId-FbSVtq1HuKIQme4JJbuyQ3lu3xyDw"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1024384454422-36vlc7ngu49oig46dv5cqo16f5noqfvg.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "1024384454422-mgfk2oqiufi06di9cdgarqa31eel0vpp.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.taxiBookingApp"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

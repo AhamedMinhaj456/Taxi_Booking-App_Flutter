@@ -1,7 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:taxi_booking_app/Models/Login.dart';
 import 'package:taxi_booking_app/authentication/login.dart';
 import 'package:taxi_booking_app/methods/common_methods.dart';
+import 'package:taxi_booking_app/pages/home_page.dart';
+import 'package:taxi_booking_app/widgets/loading_dialog.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -20,6 +24,62 @@ class _SignupScreenState extends State<SignupScreen> {
 
   checkIfNetworkAvailabe() {
     cMethods.checkConnectivity(context);
+    signUpFormValidation();
+  }
+
+  signUpFormValidation() {
+    if (userNameTextEditingController.text.trim().length < 3) {
+      cMethods.displaySnackBar(
+          "Your name Must have 4 or more characters", context);
+    } else if (phoneNumberTextEditingController.text.trim().length < 8) {
+      cMethods.displaySnackBar(
+          "Your phone number must be 8 or more characters", context);
+    } else if (!emailTextEditingController.text.contains("@")) {
+      cMethods.displaySnackBar("Please enter a valid email address", context);
+    } else if (passwordTextEditingController.text.trim().length < 5) {
+      cMethods.displaySnackBar(
+          "Your password must have 4 or more characters", context);
+    } else {
+      registerNewUser();
+    }
+  }
+
+  registerNewUser() async {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) =>
+          LoadingDialog(messageText: "Registering Your account...."),
+    );
+    
+
+    final User? userFirebase = (await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+      email: emailTextEditingController.text.trim(),
+      password: passwordTextEditingController.text.trim(),
+    ).catchError((errorMessage) {
+      // print("Error during user registration: $errorMessage");
+      Navigator.pop(context);
+      cMethods.displaySnackBar(errorMessage.toString(), context);
+    })).user;
+
+    if (!context.mounted) return;
+    Navigator.pop(context);
+
+    DatabaseReference usersRef =
+        FirebaseDatabase.instance.ref().child("users").child(userFirebase!.uid);
+
+    Map userDataMap = {
+      "name": userNameTextEditingController.text.trim(),
+      "email": emailTextEditingController.text.trim(),
+      "phone": phoneNumberTextEditingController.text.trim(),
+      "id": userFirebase.uid,
+      "blockStatus": "no",
+    };
+
+    usersRef.set(userDataMap);
+
+    Navigator.push(context, MaterialPageRoute(builder: (c) => const HomePage()));
   }
 
   @override
@@ -102,14 +162,14 @@ class _SignupScreenState extends State<SignupScreen> {
                   height: 22,
                 ),
                 TextField(
-                  controller: emailTextEditingController,
-                  keyboardType: TextInputType.emailAddress,
+                  controller: passwordTextEditingController,
+                  keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
-                    labelText: "User Name",
+                    labelText: "Password",
                     labelStyle: TextStyle(
                       fontSize: 14,
                     ),
-                    hintText: "Enter Your User Name",
+                    hintText: "Enter Your password",
                     hintStyle: TextStyle(
                       fontSize: 14,
                     ),
@@ -164,7 +224,8 @@ class _SignupScreenState extends State<SignupScreen> {
           )
         ]),
       ),
-    ));
+    )
+    );
   }
 }
 

@@ -1,3 +1,4 @@
 {
-    "avdmanager.emulator": "c:\\dev\\flutter\\bin\\flutter"
+    "avdmanager.emulator": "c:\\dev\\flutter\\bin\\flutter",
+    "cmake.sourceDirectory": "C:/Users/Ahamed Minhaj/Desktop/Software Project/Github/Taxi_Booking-App_Flutter/taxi_booking_app/linux"
 }

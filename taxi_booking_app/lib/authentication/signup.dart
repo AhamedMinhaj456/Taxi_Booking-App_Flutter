@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:taxi_booking_app/authentication/login.dart';
 import 'package:taxi_booking_app/methods/common_methods.dart';
 import 'package:taxi_booking_app/pages/home_page.dart';
@@ -20,6 +23,7 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
   CommonMethods cMethods = CommonMethods();
+  XFile? imagefile;
 
   checkIfNetworkAvailabe() {
     cMethods.checkConnectivity(context);
@@ -50,19 +54,20 @@ class _SignupScreenState extends State<SignupScreen> {
       builder: (BuildContext context) =>
           LoadingDialog(messageText: "Registering Your account...."),
     );
-    
 
     final User? userFirebase = (await FirebaseAuth.instance
             .createUserWithEmailAndPassword(
       email: emailTextEditingController.text.trim(),
       password: passwordTextEditingController.text.trim(),
+
     
-    // ignore: body_might_complete_normally_catch_error
-    ).catchError((errorMessage) {
-      
+    )
+            // ignore: body_might_complete_normally_catch_error
+            .catchError((errorMessage) {
       Navigator.pop(context);
       cMethods.displaySnackBar(errorMessage.toString(), context);
-    })).user;
+    }))
+        .user;
 
     if (!context.mounted) return;
     Navigator.pop(context);
@@ -80,7 +85,18 @@ class _SignupScreenState extends State<SignupScreen> {
 
     usersRef.set(userDataMap);
 
-    Navigator.push(context, MaterialPageRoute(builder: (c) => const HomePage()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (c) => const HomePage()));
+  }
+
+  chooseImageFromGallery() async {
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        imagefile = pickedFile;
+      });
+    }
   }
 
   @override
@@ -90,7 +106,11 @@ class _SignupScreenState extends State<SignupScreen> {
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(children: [
-          Image.asset("assets/images/logo.png"),
+
+         const SizedBox(
+            height: 30,
+          ),
+
           const Text(
             "Create user Account",
             style: TextStyle(
@@ -98,6 +118,53 @@ class _SignupScreenState extends State<SignupScreen> {
               fontWeight: FontWeight.bold,
             ),
           ),
+
+          const SizedBox(
+            height: 40,
+          ),
+
+          imagefile == null?
+          const CircleAvatar(
+            radius: 90,
+            backgroundImage: AssetImage("assets/images/avatarman.png"),
+          ):Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.green,
+              image: DecorationImage(
+                fit: BoxFit.fitHeight,
+                image: FileImage(
+                  File(
+                    imagefile!.path,
+                  ),
+                ))
+            ),
+          ),
+
+          const SizedBox(
+            height: 20,
+          ),
+
+          
+          GestureDetector(
+            onTap: () {
+              chooseImageFromGallery();
+            },
+            child: const Text(
+              "choose image",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+
+          const SizedBox(
+            height: 30,
+          ),
+         
 
           //text + button
           Padding(
@@ -164,7 +231,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 TextField(
                   controller: passwordTextEditingController,
-                  keyboardType: TextInputType.text,
+                  obscureText: true,
                   decoration: const InputDecoration(
                     labelText: "Password",
                     labelStyle: TextStyle(
@@ -225,8 +292,7 @@ class _SignupScreenState extends State<SignupScreen> {
           )
         ]),
       ),
-    )
-    );
+    ));
   }
 }
 

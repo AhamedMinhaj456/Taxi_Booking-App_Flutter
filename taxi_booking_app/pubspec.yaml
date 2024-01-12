@@ -38,6 +38,10 @@ dependencies:
   firebase_auth:
   firebase_database:
   firebase_storage:
+  google_maps_flutter:
+  permission_handler:
+  geolocator:
+  image_picker:
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -71,6 +75,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - assets/images/
+   - themes/
   #   - images/a_dot_ham.jpeg
   
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -98,3 +103,14 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+
+
+
+
+
+
+
+
+# google api key
+ #api key AIzaSyCOvdnDh5DX7aF88mQ3fVqb4pZLcBbzhbs

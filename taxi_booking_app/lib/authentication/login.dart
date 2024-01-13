@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:taxi_booking_app/authentication/signup.dart';
 import 'package:taxi_booking_app/global/global_var.dart';
 import 'package:taxi_booking_app/methods/common_methods.dart';
-import 'package:taxi_booking_app/pages/home_page.dart';
+import 'package:taxi_booking_app/pages/dashboard.dart';
 import 'package:taxi_booking_app/widgets/loading_dialog.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
           if ((snap.snapshot.value as Map)["blockStatus"] == "no") {
             userName = (snap.snapshot.value as Map)["name"];
             Navigator.push(
-                context, MaterialPageRoute(builder: (c) => const HomePage()));
+                context, MaterialPageRoute(builder: (c) => const Dashboard()));
           } else {
             FirebaseAuth.instance.signOut();
             cMethods.displaySnackBar("Your Account has been blocked. \n Contact RuhunaRide", context);

@@ -1,11 +1,16 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:taxi_booking_app/authentication/login.dart';
 import 'package:taxi_booking_app/global/global_var.dart';
+import 'package:taxi_booking_app/methods/common_methods.dart';
+import 'package:taxi_booking_app/pages/search_destination.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,6 +24,9 @@ class _HomePageState extends State<HomePage> {
       Completer<GoogleMapController>();
   GoogleMapController? controllerGoogleMap;
   Position? currentPositionofuser;
+  GlobalKey<ScaffoldState> sKey = GlobalKey<ScaffoldState>();
+  CommonMethods cMethods = CommonMethods();
+  double searchContainerHeight =220;
 
   void updateMapTheme(GoogleMapController controller) {
     getJsonFileFromThemes("themes/dark_style.json")
@@ -48,14 +56,157 @@ class _HomePageState extends State<HomePage> {
         CameraPosition(target: positionOfUserinLating, zoom: 15);
     controllerGoogleMap!
         .animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+
+    //await getUserInfoAndCheckLockStatus();
   }
+
+   // App crashing with this Admin Lock function
+
+  // getUserInfoAndCheckLockStatus() async {
+  //   DatabaseReference usersRef = FirebaseDatabase.instance
+  //       .ref()
+  //       .child("users")
+  //       .child(FirebaseAuth.instance.currentUser!.uid);
+
+  //   await usersRef.once().then((snap) {
+  //     if (snap.snapshot.value != null) {
+  //       if ((snap.snapshot.value as Map)["blockStatus"] == "no") {
+  //         setState(() {
+  //           userName = (snap.snapshot.value as Map)["name"];
+  //         });
+  //         Navigator.push(
+  //             context, MaterialPageRoute(builder: (c) => const Dashboard()));
+  //       } else {
+  //         FirebaseAuth.instance.signOut();
+  //         Navigator.push(
+  //             context, MaterialPageRoute(builder: (c) => const LoginScreen()));
+  //         cMethods.displaySnackBar(
+  //             "Your Account has been blocked. \n Contact RuhunaRide", context);
+  //       }
+  //     } else {
+  //       FirebaseAuth.instance.signOut();
+  //       Navigator.push(
+  //           context, MaterialPageRoute(builder: (c) => const LoginScreen()));
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: sKey,
+      drawer: Container(
+        width: 250,
+        color: Colors.black,
+        child: Drawer(
+          backgroundColor: Colors.white,
+          child: ListView(
+            children: [
+              // header
+              Container(
+                color: Colors.black,
+                height: 160,
+                child: DrawerHeader(
+                  decoration: const BoxDecoration(color: Colors.grey),
+                  child: Row(children: [
+                    // user image or icon
+                    Image.asset(
+                      "assets/images/avatarwoman.webp",
+                      width: 60,
+                      height: 60,
+                    ),
+
+                    // const Icon(
+                    //   Icons.person,
+                    //   size: 60,
+                    // ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          userName,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        const Text(
+                          "Profile",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        )
+                      ],
+                    ),
+                  ]),
+                ),
+              ),
+
+              const Divider(
+                height: 1,
+                color: Colors.blueAccent,
+                thickness: 1,
+              ),
+
+              //body
+              GestureDetector(
+                onTap: () {
+                  
+                },
+                child: ListTile(
+                  leading: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.info,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  title: const Text(
+                    "About",
+                    style: TextStyle(color: Colors.green),
+                  ),
+                ),
+              ),
+
+              
+              GestureDetector(
+                onTap: () {
+                  FirebaseAuth.instance.signOut();
+                    Navigator.push(
+              context, MaterialPageRoute(builder: (c) => const LoginScreen()));
+                },
+                child: ListTile(
+                  leading: IconButton(
+                    onPressed: () {
+                      
+                    },
+                    icon: const Icon(
+                      Icons.logout,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  title: const Text(
+                    "Log Out",
+                    style: TextStyle(color: Colors.green),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: Stack(
         children: [
           GoogleMap(
+            padding: const EdgeInsets.only(top: 35, bottom:10),
             mapType: MapType.normal,
             myLocationEnabled: true,
             initialCameraPosition: googlePlexInitialPosition,
@@ -66,6 +217,65 @@ class _HomePageState extends State<HomePage> {
               getCurrentLiveLocationOfUser();
             },
           ),
+
+          // Drawer button
+          Positioned(
+              top: 42,
+              left: 20,
+              child: GestureDetector(
+                onTap: () {
+                  sKey.currentState!.openDrawer();
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Colors.black,
+                            spreadRadius: 0.5,
+                            offset: Offset(0.7, 0.7))
+                      ]),
+                  child: const CircleAvatar(
+                    backgroundColor: Colors.white,
+                    radius: 20,
+                    child: Icon(
+                      Icons.menu,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              )),
+       
+       Positioned(
+        left:10,
+       // right: 40,
+        //top: 60,
+        // ignore: sized_box_for_whitespace
+        child: Container(
+       height: searchContainerHeight,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              ElevatedButton(
+                onPressed: (){
+                     Navigator.push(
+            context, MaterialPageRoute(builder: (c) => const SearchDestination()));
+              }, 
+              style: ElevatedButton.styleFrom(
+                shape: const CircleBorder(),
+                padding: const EdgeInsets.all(5)
+              ),
+              child: const Icon(
+                Icons.search,
+                color: Colors.grey,
+                size: 30,
+              ),
+              ),
+            ]),
+        ),
+         )
+       
         ],
       ),
     );

@@ -67,7 +67,7 @@ class _DashboardState extends State<Dashboard>
             label: "Settings"),
         ],
         currentIndex: indexSelected,
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.white,
         unselectedItemColor: Colors.blue,
         selectedItemColor: Colors.green,
         showSelectedLabels: true,

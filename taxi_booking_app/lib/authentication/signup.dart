@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:taxi_booking_app/authentication/login.dart';
 import 'package:taxi_booking_app/methods/common_methods.dart';
-import 'package:taxi_booking_app/pages/home_page.dart';
+import 'package:taxi_booking_app/pages/dashboard.dart';
 import 'package:taxi_booking_app/widgets/loading_dialog.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -31,13 +31,10 @@ class _SignupScreenState extends State<SignupScreen> {
     cMethods.checkConnectivity(context);
 
     if (imageFile != null) {
-       signUpFormValidation();
-      
+      signUpFormValidation();
     } else {
       cMethods.displaySnackBar("Please choose a image", context);
     }
-
-    
   }
 
   uploadImageToStorage() async {
@@ -52,7 +49,7 @@ class _SignupScreenState extends State<SignupScreen> {
       urlOfUploadedImage;
     });
 
-     registerNewUser();
+    registerNewUser();
   }
 
   signUpFormValidation() {
@@ -68,8 +65,8 @@ class _SignupScreenState extends State<SignupScreen> {
       cMethods.displaySnackBar(
           "Your password must have 4 or more characters", context);
     } else {
-     uploadImageToStorage();
-     
+      // uploadImageToStorage();
+      registerNewUser();
     }
   }
 
@@ -100,7 +97,7 @@ class _SignupScreenState extends State<SignupScreen> {
         FirebaseDatabase.instance.ref().child("users").child(userFirebase!.uid);
 
     Map userDataMap = {
-      "photo":urlOfUploadedImage,
+      "photo": urlOfUploadedImage,
       "name": userNameTextEditingController.text.trim(),
       "email": emailTextEditingController.text.trim(),
       "phone": phoneNumberTextEditingController.text.trim(),
@@ -111,7 +108,7 @@ class _SignupScreenState extends State<SignupScreen> {
     usersRef.set(userDataMap);
 
     Navigator.push(
-        context, MaterialPageRoute(builder: (c) => const HomePage()));
+        context, MaterialPageRoute(builder: (c) => const Dashboard()));
   }
 
   chooseImageFromGallery() async {

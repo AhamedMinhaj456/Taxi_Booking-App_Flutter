@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:taxi_booking_app/authentication/login.dart';
@@ -23,11 +24,35 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
   CommonMethods cMethods = CommonMethods();
-  XFile? imagefile;
+  XFile? imageFile;
+  String urlOfUploadedImage = "";
 
   checkIfNetworkAvailabe() {
     cMethods.checkConnectivity(context);
-    signUpFormValidation();
+
+    if (imageFile != null) {
+       signUpFormValidation();
+      
+    } else {
+      cMethods.displaySnackBar("Please choose a image", context);
+    }
+
+    
+  }
+
+  uploadImageToStorage() async {
+    String imageIdName = DateTime.now().millisecondsSinceEpoch.toString();
+    Reference referenceImage =
+        FirebaseStorage.instance.ref().child("Images").child(imageIdName);
+    UploadTask uploadTask = referenceImage.putFile(File(imageFile!.path));
+    TaskSnapshot snapshot = await uploadTask;
+    urlOfUploadedImage = await snapshot.ref.getDownloadURL();
+
+    setState(() {
+      urlOfUploadedImage;
+    });
+
+     registerNewUser();
   }
 
   signUpFormValidation() {
@@ -43,7 +68,8 @@ class _SignupScreenState extends State<SignupScreen> {
       cMethods.displaySnackBar(
           "Your password must have 4 or more characters", context);
     } else {
-      registerNewUser();
+     uploadImageToStorage();
+     
     }
   }
 
@@ -59,8 +85,6 @@ class _SignupScreenState extends State<SignupScreen> {
             .createUserWithEmailAndPassword(
       email: emailTextEditingController.text.trim(),
       password: passwordTextEditingController.text.trim(),
-
-    
     )
             // ignore: body_might_complete_normally_catch_error
             .catchError((errorMessage) {
@@ -76,6 +100,7 @@ class _SignupScreenState extends State<SignupScreen> {
         FirebaseDatabase.instance.ref().child("users").child(userFirebase!.uid);
 
     Map userDataMap = {
+      "photo":urlOfUploadedImage,
       "name": userNameTextEditingController.text.trim(),
       "email": emailTextEditingController.text.trim(),
       "phone": phoneNumberTextEditingController.text.trim(),
@@ -94,7 +119,7 @@ class _SignupScreenState extends State<SignupScreen> {
         await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       setState(() {
-        imagefile = pickedFile;
+        imageFile = pickedFile;
       });
     }
   }
@@ -106,8 +131,7 @@ class _SignupScreenState extends State<SignupScreen> {
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(children: [
-
-         const SizedBox(
+          const SizedBox(
             height: 30,
           ),
 
@@ -123,31 +147,30 @@ class _SignupScreenState extends State<SignupScreen> {
             height: 40,
           ),
 
-          imagefile == null?
-          const CircleAvatar(
-            radius: 90,
-            backgroundImage: AssetImage("assets/images/avatarman.png"),
-          ):Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.green,
-              image: DecorationImage(
-                fit: BoxFit.fitHeight,
-                image: FileImage(
-                  File(
-                    imagefile!.path,
-                  ),
-                ))
-            ),
-          ),
+          imageFile == null
+              ? const CircleAvatar(
+                  radius: 90,
+                  backgroundImage: AssetImage("assets/images/avatarman.png"),
+                )
+              : Container(
+                  width: 100,
+                  height: 100,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.green,
+                      image: DecorationImage(
+                          fit: BoxFit.fitHeight,
+                          image: FileImage(
+                            File(
+                              imageFile!.path,
+                            ),
+                          ))),
+                ),
 
           const SizedBox(
             height: 20,
           ),
 
-          
           GestureDetector(
             onTap: () {
               chooseImageFromGallery();
@@ -164,7 +187,6 @@ class _SignupScreenState extends State<SignupScreen> {
           const SizedBox(
             height: 30,
           ),
-         
 
           //text + button
           Padding(

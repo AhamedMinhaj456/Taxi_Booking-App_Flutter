@@ -209,6 +209,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 const SizedBox(
                   height: 22,
                 ),
+                
                 TextField(
                   controller: phoneNumberTextEditingController,
                   keyboardType: TextInputType.text,

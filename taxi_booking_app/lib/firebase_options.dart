@@ -47,8 +47,8 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAXVKu-OghqKvSdwcEh9r2KgS_BC4mzXsU',
-    appId: '1:1024384454422:web:2da80b1e1d78b9b9110a37',
+    apiKey: 'AIzaSyBId-FbSVtq1HuKIQme4JJbuyQ3lu3xyDw',
+    appId: '1:1024384454422:android:9ce7747828db6450110a37',
     messagingSenderId: '1024384454422',
     projectId: 'taxibookingapp-grp52',
     authDomain: 'taxibookingapp-grp52.firebaseapp.com',
@@ -57,15 +57,15 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBId-FbSVtq1HuKIQme4JJbuyQ3lu3xyDw',
-    appId: '1:1024384454422:android:5834778949287085110a37',
+    appId: '1:1024384454422:android:9ce7747828db6450110a37',
     messagingSenderId: '1024384454422',
     projectId: 'taxibookingapp-grp52',
     storageBucket: 'taxibookingapp-grp52.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAraltvGt2iHBS84Zu10HC1DStETEPoBxc',
-    appId: '1:1024384454422:ios:e4b4356a5eded792110a37',
+    apiKey: 'AIzaSyBId-FbSVtq1HuKIQme4JJbuyQ3lu3xyDw',
+    appId: '1:1024384454422:android:9ce7747828db6450110a37',
     messagingSenderId: '1024384454422',
     projectId: 'taxibookingapp-grp52',
     storageBucket: 'taxibookingapp-grp52.appspot.com',

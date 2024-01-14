@@ -1,4 +1,4 @@
-package com.Group52.taxi_booking_app
+package com.group52.ruhunaRide
 
 import io.flutter.embedding.android.FlutterActivity
 

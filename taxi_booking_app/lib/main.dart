@@ -1,5 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:taxi_booking_app/Models/Payment.dart';
 import 'package:taxi_booking_app/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,11 +6,9 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:taxi_booking_app/authentication/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:taxi_booking_app/controller/auth_controller.dart';
-import 'package:taxi_booking_app/pages/dashboard.dart';
-import 'package:taxi_booking_app/pages/my_profile.dart';
-import 'package:taxi_booking_app/pages/payment_page.dart';
-import 'package:taxi_booking_app/pages/profile_page.dart';
+import 'package:taxi_booking_app/pages/login_screen.dart';
 import 'package:taxi_booking_app/pages/setting_page.dart';
+import 'package:taxi_booking_app/signup.dart';
 
 
 
@@ -57,7 +53,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: //FirebaseAuth.instance.currentUser ==  null ? const LoginScreen(): const Dashboard(),
-        const LoginScreen(),
+        const LoginScreenF(),
     );
   }
 }

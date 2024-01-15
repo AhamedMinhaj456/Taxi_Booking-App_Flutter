@@ -9,20 +9,23 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:taxi_booking_app/authentication/login.dart';
+import 'package:taxi_booking_app/authentication/signup.dart';
+import 'package:taxi_booking_app/global/global_var.dart';
 import 'package:taxi_booking_app/methods/common_methods.dart';
 import 'package:taxi_booking_app/pages/dashboard.dart';
 import 'package:taxi_booking_app/pages/otp_verfication_screen.dart';
 import 'package:taxi_booking_app/widgets/loading_dialog.dart';
+import 'package:taxi_booking_app/widgets/login_widget.dart';
 import 'package:taxi_booking_app/widgets/phone_number_widget.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class LoginScreenF extends StatefulWidget {
+  const LoginScreenF({super.key});
 
   @override
-  State<SignUpScreen> createState() => _LoginScreenFState();
+  State<LoginScreenF> createState() => _LoginScreenFState();
 }
 
-class _LoginScreenFState extends State<SignUpScreen> {
+class _LoginScreenFState extends State<LoginScreenF> {
   TextEditingController userNameTextEditingController = TextEditingController();
   TextEditingController phoneNumberTextEditingController =
       TextEditingController();
@@ -238,7 +241,7 @@ class _LoginScreenFState extends State<SignUpScreen> {
                   ),
                 ),
                 const SizedBox(
-                  height: 2,
+                  height: 22,
                 ),
                 phoneNumberWidget(countryCode,()async{
                 final code = await countryPicker.showPicker(context: context);
@@ -268,9 +271,9 @@ class _LoginScreenFState extends State<SignUpScreen> {
                 //     fontSize: 15,
                 //   ),
                 // ),
-                const SizedBox(
-                  height: 22,
-                ),
+                // const SizedBox(
+                //   height: 22,
+                // ),
                 _emailPassword(),
                 const SizedBox(height: 20),
                 _buildSignUpButton(),

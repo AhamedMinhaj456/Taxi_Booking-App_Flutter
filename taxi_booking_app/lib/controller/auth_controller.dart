@@ -13,8 +13,6 @@ import 'package:google_maps_webservice/places.dart';
 import 'package:path/path.dart' as Path;
 import 'package:taxi_booking_app/methods/user_model/user_model.dart';
 import 'package:taxi_booking_app/pages/home_page.dart';
-import 'package:taxi_booking_app/pages/profile_page.dart';
-import 'package:taxi_booking_app/pages/trips_page.dart';
 
 
 

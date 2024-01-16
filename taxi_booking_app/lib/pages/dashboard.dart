@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:taxi_booking_app/pages/home_page.dart';
 import 'package:taxi_booking_app/pages/profile_page.dart';
+import 'package:taxi_booking_app/pages/profile_setting.dart';
 import 'package:taxi_booking_app/pages/trips_page.dart';
+import 'package:taxi_booking_app/view/home.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -46,8 +48,8 @@ class _DashboardState extends State<Dashboard>
       children: const [
         HomePage(),
         TripsPage(),
-        ProfilePage(),
-        //HomeScreen(),
+        ProfileSettingScreen(),
+        HomeScreen(),
       ],
       ),
       bottomNavigationBar: BottomNavigationBar(

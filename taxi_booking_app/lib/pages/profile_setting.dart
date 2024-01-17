@@ -273,7 +273,7 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
       minWidth: Get.width,
       height: 50,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-      color: Colors.green,
+      color: Colors.deepPurple[200],
       onPressed: () => onPressed(),
       child: Text(
         title,

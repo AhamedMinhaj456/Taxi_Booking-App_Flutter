@@ -25,7 +25,7 @@ Widget DecisionButton(String icon,String text,Function onPressed,double width,{d
             width: 65,
             height: height,
             decoration: const BoxDecoration(
-              color: Colors.green,
+              color: Colors.deepPurple,
               borderRadius: BorderRadius.only(topLeft: Radius.circular(8),bottomLeft: Radius.circular(8)),
 
             ),

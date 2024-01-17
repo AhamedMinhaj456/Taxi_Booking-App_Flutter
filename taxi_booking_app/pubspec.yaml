@@ -52,6 +52,16 @@ dependencies:
   google_maps_webservice:
   flutter_credit_card: ^3.0.4
   google_api_headers:
+  mailer: ^6.0.1
+  ionicons: ^0.2.2
+  theme_provider: ^0.6.0
+
+  
+
+  
+
+
+  
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -5,6 +5,7 @@ import 'package:taxi_booking_app/authentication/signup.dart';
 import 'package:taxi_booking_app/global/global_var.dart';
 import 'package:taxi_booking_app/methods/common_methods.dart';
 import 'package:taxi_booking_app/pages/dashboard.dart';
+import 'package:taxi_booking_app/pages/forgetpw_page.dart';
 import 'package:taxi_booking_app/widgets/loading_dialog.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -145,9 +146,11 @@ class _LoginScreenState extends State<LoginScreen> {
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),
         )),
-        child: Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: _buildForm(),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: _buildForm(),
+          ),
         ),
       ),
     );
@@ -199,10 +202,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       hintText: "Enter Your Email Address",
                       hintStyle: TextStyle(
                         fontSize: 14,
-                        color: Colors.green,
+                        color: Colors.black,
                       )),
                   style: const TextStyle(
-                    color: Colors.green,
+                    color: Colors.black,
                     fontSize: 15,
                   ),
                 ),
@@ -222,11 +225,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     hintText: "Enter Your Password",
                     hintStyle: TextStyle(
                       fontSize: 14,
-                      color: Colors.green
+                      color: Colors.black
                     ),
                   ),
                   style: const TextStyle(
-                    color: Colors.green,
+                    color: Colors.black,
                     fontSize: 15,
                   ),
                 ),
@@ -297,13 +300,29 @@ class _LoginScreenState extends State<LoginScreen> {
             _buildGreyText("Remember Me")
           ],
         ),
-        TextButton(
-            onPressed: () {}, 
-            child: const Text(
-              "Forgot my password",
-              style: TextStyle(color: Colors.red),
-              ),
-              ),
+     TextButton(
+  onPressed: () {},
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.end,
+    children: [
+      GestureDetector(
+        onTap: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context){
+            return ForgetPasswordPage();
+          }),);
+        },
+        child: Text(
+          "Forgot password ?",
+          style: TextStyle(
+            color: Colors.blue,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    ],
+  ),
+)
+
       ],
     );
   }

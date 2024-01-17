@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taxi_booking_app/pages/account_page.dart';
 import 'package:taxi_booking_app/pages/home_page.dart';
 import 'package:taxi_booking_app/pages/profile_page.dart';
 import 'package:taxi_booking_app/pages/profile_setting.dart';
@@ -48,7 +49,7 @@ class _DashboardState extends State<Dashboard>
       children: const [
         HomePage(),
         TripsPage(),
-        ProfileSettingScreen(),
+        AccountScreen(),
         HomeScreen(),
       ],
       ),

@@ -56,9 +56,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home:  FirebaseAuth.instance.currentUser ==  null ? const LoginScreen(): const Dashboard(),
-       // const SignupScreenDev(),
+        //const SignupScreenDev(),
        //const PaymentScreen()
-       // const SettingPage()
+        //const SettingPage(),
      
     );
   }

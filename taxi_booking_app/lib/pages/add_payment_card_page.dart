@@ -138,7 +138,7 @@ class AddPaymentCardScreenState extends State<AddPaymentCardScreen> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0),
                           ),
-                          primary: Colors.green
+                          primary: Colors.blue,
                           // backgroundColor: const Color(0xff1b447b),
                         ),
                         child: Container(

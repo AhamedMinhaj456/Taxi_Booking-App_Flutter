@@ -213,13 +213,13 @@ class AuthController extends GetxController {
       offset: 0,
       radius: 1000,
       strictbounds: false,
-      region: "pk",
+      region: "LK",
       language: "en",
       context: context,
       mode: Mode.overlay,
       apiKey: "AIzaSyCOvdnDh5DX7aF88mQ3fVqb4pZLcBbzhbs",
       // ignore: unnecessary_new
-      components: [new Component(Component.country, "pk")],
+      components: [new Component(Component.country, "LK")],
       types: [],
       hint: "Search City",
     );

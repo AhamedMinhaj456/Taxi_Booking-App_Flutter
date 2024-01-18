@@ -3,6 +3,7 @@ import 'package:taxi_booking_app/pages/account_page.dart';
 import 'package:taxi_booking_app/pages/home_page.dart';
 import 'package:taxi_booking_app/pages/profile_page.dart';
 import 'package:taxi_booking_app/pages/profile_setting.dart';
+import 'package:taxi_booking_app/pages/search_destination.dart';
 import 'package:taxi_booking_app/pages/trips_page.dart';
 import 'package:taxi_booking_app/view/home.dart';
 
@@ -48,9 +49,10 @@ class _DashboardState extends State<Dashboard>
       controller: controller,
       children: const [
         HomePage(),
-        TripsPage(),
-        AccountScreen(),
+        SearchDestination(),
         HomeScreen(),
+        AccountScreen(),
+        
       ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -60,7 +62,7 @@ class _DashboardState extends State<Dashboard>
             label: "Home"),
             BottomNavigationBarItem(
             icon: Icon(Icons.account_tree),
-            label: "Trips"),
+            label: "Hire"),
             BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: "Profile"),

@@ -35,10 +35,11 @@ Widget greenIntroWidgetWithoutLogos({String title = "Profile Settings",String? s
   return Container(
     width: Get.width,
     decoration: const BoxDecoration(
+      color: Colors.blue,
         image: DecorationImage(
-            image: AssetImage('assets/mask.png'),
+            image: AssetImage('assets/logo1.png'),
             fit: BoxFit.fill
-        )
+        ),
     ),
     height: Get.height*0.3,
     child: Container(

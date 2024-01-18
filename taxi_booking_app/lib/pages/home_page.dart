@@ -9,8 +9,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:taxi_booking_app/authentication/login.dart';
 import 'package:taxi_booking_app/global/global_var.dart';
 import 'package:taxi_booking_app/methods/common_methods.dart';
+import 'package:taxi_booking_app/pages/login_window/login_screen.dart';
 import 'package:taxi_booking_app/pages/search_destination.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   Position? currentPositionofuser;
   GlobalKey<ScaffoldState> sKey = GlobalKey<ScaffoldState>();
   CommonMethods cMethods = CommonMethods();
-  double searchContainerHeight =220;
+  double searchContainerHeight = 220;
 
   void updateMapTheme(GoogleMapController controller) {
     getJsonFileFromThemes("themes/dark_style.json")
@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> {
     //await getUserInfoAndCheckLockStatus();
   }
 
-   // App crashing with this Admin Lock function
+  // App crashing with this Admin Lock function
 
   // getUserInfoAndCheckLockStatus() async {
   //   DatabaseReference usersRef = FirebaseDatabase.instance
@@ -158,9 +158,7 @@ class _HomePageState extends State<HomePage> {
 
               //body
               GestureDetector(
-                onTap: () {
-                  
-                },
+                onTap: () {},
                 child: ListTile(
                   leading: IconButton(
                     onPressed: () {},
@@ -176,18 +174,15 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              
               GestureDetector(
                 onTap: () {
                   FirebaseAuth.instance.signOut();
-                    Navigator.push(
-              context, MaterialPageRoute(builder: (c) => const LoginScreen()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (c) => const LoginScreenLast()));
                 },
                 child: ListTile(
                   leading: IconButton(
-                    onPressed: () {
-                      
-                    },
+                    onPressed: () {},
                     icon: const Icon(
                       Icons.logout,
                       color: Colors.grey,
@@ -206,7 +201,7 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: [
           GoogleMap(
-            padding: const EdgeInsets.only(top: 35, bottom:10),
+            padding: const EdgeInsets.only(top: 35, bottom: 10),
             mapType: MapType.normal,
             myLocationEnabled: true,
             initialCameraPosition: googlePlexInitialPosition,
@@ -246,36 +241,36 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               )),
-       
-       Positioned(
-        left:10,
-       // right: 40,
-        //top: 60,
-        // ignore: sized_box_for_whitespace
-        child: Container(
-       height: searchContainerHeight,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              ElevatedButton(
-                onPressed: (){
-                     Navigator.push(
-            context, MaterialPageRoute(builder: (c) => const SearchDestination()));
-              }, 
-              style: ElevatedButton.styleFrom(
-                shape: const CircleBorder(),
-                padding: const EdgeInsets.all(5)
-              ),
-              child: const Icon(
-                Icons.search,
-                color: Colors.grey,
-                size: 30,
-              ),
-              ),
-            ]),
-        ),
-         )
-       
+
+          Positioned(
+            left: 10,
+            // right: 40,
+            //top: 60,
+            // ignore: sized_box_for_whitespace
+            child: Container(
+              height: searchContainerHeight,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (c) => const SearchDestination()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                          shape: const CircleBorder(),
+                          padding: const EdgeInsets.all(5)),
+                      child: const Icon(
+                        Icons.search,
+                        color: Colors.grey,
+                        size: 30,
+                      ),
+                    ),
+                  ]),
+            ),
+          )
         ],
       ),
     );

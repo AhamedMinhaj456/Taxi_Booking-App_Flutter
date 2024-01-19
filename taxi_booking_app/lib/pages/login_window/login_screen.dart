@@ -117,20 +117,101 @@ class _LoginScreenLastState extends State<LoginScreenLast> {
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  TextInputField(
+                children: [const SizedBox(
+                      height: 25,
+                    ),
+
+                     SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  child: TextField(
                     controller: emailTextEditingController,
-                    icon: FontAwesomeIcons.envelope,
-                    hint: 'Email',
-                    inputType: TextInputType.emailAddress,
-                    inputAction: TextInputAction.next,
+                    //obscureText: true,
+                    style: const TextStyle(color: Colors.white), // Set the input text color to white
+                    decoration: InputDecoration(
+                      prefixIcon: const Icon(
+                        FontAwesomeIcons.envelope,
+                        color: Colors.white,
+                      ),
+                      labelText: "Email Address",
+                      labelStyle: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                      hintText: "Enter Your Email Address",
+                      hintStyle: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.grey,
+                      ),
+                      filled: true,
+                      fillColor: Colors.white.withOpacity(0.2),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: const BorderSide(
+                          color: Colors.white,
+                        ),
+                      ),
+                      // Set text color for user typing
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: const BorderSide(
+                          color: Colors.white, // Set text color when not focused
+                        ),
+                      ),
+                    ),
                   ),
-                  PasswordInput(
+                ),
+
+                  const SizedBox(
+                      height: 25,
+                    ),
+
+                                    SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  child: TextField(
                     controller: passwordTextEditingController,
-                    icon: FontAwesomeIcons.lock,
-                    hint: 'Password',
-                    inputAction: TextInputAction.done,
+                    obscureText: true,
+                    style: const TextStyle(color: Colors.white), // Set the input text color to white
+                    decoration: InputDecoration(
+                      prefixIcon: const Icon(
+                        Icons.key,
+                        color: Colors.white,
+                      ),
+                      labelText: "Password",
+                      labelStyle: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                      hintText: "Enter Your Password",
+                      hintStyle: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.grey,
+                      ),
+                      filled: true,
+                      fillColor: Colors.white.withOpacity(0.2),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: const BorderSide(
+                          color: Colors.white,
+                        ),
+                      ),
+                      // Set text color for user typing
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: const BorderSide(
+                          color: Colors.white, // Set text color when not focused
+                        ),
+                      ),
+                    ),
                   ),
+                ),
                   GestureDetector(
                     onTap: () => Navigator.push(context,
                   MaterialPageRoute(builder: (C) => const ForgetPasswordPage())),
@@ -146,9 +227,15 @@ class _LoginScreenLastState extends State<LoginScreenLast> {
                   const SizedBox(
                     height: 25,
                   ),
-                  const RoundedButton(
+                   RoundedButton(
                     
                     buttonName: 'Login',
+                    onPressed: () {
+                      checkIfNetworkAvailabe();
+                    }
+    
+    
+                    
                     
                   ),
                   const SizedBox(height: 20),
@@ -183,16 +270,16 @@ class _LoginScreenLastState extends State<LoginScreenLast> {
                    Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  IconButton(onPressed: (){}, icon:const Icon(FontAwesomeIcons.facebook),
+                  IconButton(onPressed: (){}, icon:const Icon(FontAwesomeIcons.facebook,size: 40,),
                    ),
                     const SizedBox(width: 20),
 
                    //Tab(icon: Image.asset("assets/images/facebook.png")),
-                   IconButton(onPressed: (){}, icon:const Icon(FontAwesomeIcons.instagram),
+                   IconButton(onPressed: (){}, icon:const Icon(FontAwesomeIcons.instagram,size: 40,),
                         
                     ),
                      const SizedBox(width: 20),
-                     IconButton(onPressed: (){}, icon:const Icon(FontAwesomeIcons.instagram),
+                     IconButton(onPressed: (){}, icon:const Icon(FontAwesomeIcons.instagram,size: 40,),
                      ),
                        const SizedBox(width: 20),
                        
@@ -209,11 +296,12 @@ class _LoginScreenLastState extends State<LoginScreenLast> {
                 onTap: () {Navigator.push(context,
                   MaterialPageRoute(builder: (C) => const CreateNewAccount()));},
                     child: Container(
-                  decoration: BoxDecoration(
-                      border:
-                          Border(bottom: BorderSide(width: 1, color: kWhite))),
+                  // decoration: BoxDecoration(
+                  //     border:
+                  //         Border(bottom: BorderSide(width: 1, color: kWhite))),
                   child: const Text(
                     'Create New Account',
+                    
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.blue

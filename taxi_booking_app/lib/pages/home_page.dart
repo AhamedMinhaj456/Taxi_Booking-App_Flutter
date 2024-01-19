@@ -6,10 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:taxi_booking_app/Models/Payment.dart';
 import 'package:taxi_booking_app/authentication/login.dart';
 import 'package:taxi_booking_app/global/global_var.dart';
 import 'package:taxi_booking_app/methods/common_methods.dart';
+import 'package:taxi_booking_app/pages/account_page.dart';
+import 'package:taxi_booking_app/pages/add_payment_card_page.dart';
 import 'package:taxi_booking_app/pages/login_window/login_screen.dart';
+import 'package:taxi_booking_app/pages/payment_page.dart';
 import 'package:taxi_booking_app/pages/search_destination.dart';
 
 class HomePage extends StatefulWidget {
@@ -105,9 +109,9 @@ class _HomePageState extends State<HomePage> {
               // header
               Container(
                 color: Colors.black,
-                height: 160,
+                height: 260,
                 child: DrawerHeader(
-                  decoration: const BoxDecoration(color: Colors.grey),
+                  decoration: const BoxDecoration(color: Colors.blue),
                   child: Row(children: [
                     // user image or icon
                     Image.asset(
@@ -161,6 +165,128 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {},
                 child: ListTile(
                   leading: IconButton(
+                    onPressed: () { Navigator.push(context,
+                      MaterialPageRoute(builder: (c) => const PaymentScreen()));},
+                    icon: const Icon(
+                      Icons.payment,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  title: const Text(
+                    "Payment History",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+
+              GestureDetector(
+                onTap: () {},
+                child: ListTile(
+                  leading: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.motorcycle,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  title: const Text(
+                    "Ride History",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+
+              GestureDetector(
+                onTap: () {},
+                child: ListTile(
+                  leading: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.handshake,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  title: const Text(
+                    "Invite Friends",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+
+              GestureDetector(
+                onTap: () {},
+                child: ListTile(
+                  leading: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.code,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  title: const Text(
+                    "Promo Code",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+
+              GestureDetector(
+                onTap: () {},
+                child: ListTile(
+                  leading: IconButton(
+                    onPressed: () { Navigator.push(context,
+                      MaterialPageRoute(builder: (c) => const AddPaymentCardScreen()));},
+                    icon: const Icon(
+                      Icons.credit_card,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  title: const Text(
+                    "Add Card",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+
+              GestureDetector(
+                onTap: () {},
+                child: ListTile(
+                  leading: IconButton(
+                    onPressed: () { Navigator.push(context,
+                      MaterialPageRoute(builder: (c) => const AccountScreen()));},
+                    icon: const Icon(
+                      Icons.settings,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  title: const Text(
+                    "Settings",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+
+              GestureDetector(
+                onTap: () {},
+                child: ListTile(
+                  leading: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.help,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  title: const Text(
+                    "Help",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+
+              GestureDetector(
+                onTap: () {},
+                child: ListTile(
+                  leading: IconButton(
                     onPressed: () {},
                     icon: const Icon(
                       Icons.info,
@@ -168,11 +294,13 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   title: const Text(
-                    "About",
-                    style: TextStyle(color: Colors.green),
+                    "About Us",
+                    style: TextStyle(color: Colors.black),
                   ),
                 ),
               ),
+
+              
 
               GestureDetector(
                 onTap: () {
@@ -190,7 +318,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: const Text(
                     "Log Out",
-                    style: TextStyle(color: Colors.green),
+                    style: TextStyle(color: Colors.black),
                   ),
                 ),
               ),

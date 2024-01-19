@@ -112,7 +112,7 @@ class _SearchDestinationState extends State<SearchDestination> {
               child: Container(
                 height: 230,
                 decoration: const BoxDecoration(
-                  color: Color(0xFFB39DDB),
+                  color: Colors.blue,
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black12,

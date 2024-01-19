@@ -4,10 +4,12 @@ import 'package:taxi_booking_app/pages/login_window/pallete.dart';
 class RoundedButton extends StatelessWidget {
   const RoundedButton({
     Key? key,
+    required this.onPressed,
     required this.buttonName,
   }) : super(key: key);
 
   final String buttonName;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +22,12 @@ class RoundedButton extends StatelessWidget {
         color: kBlue,
       ),
       child: TextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
+          
           buttonName,
           style: kBodyText.copyWith(fontWeight: FontWeight.bold),
+          
         ),
       ),
     );

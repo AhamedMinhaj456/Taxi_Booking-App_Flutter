@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:taxi_booking_app/devoloping_windows/setting_page.dart';
 import 'package:taxi_booking_app/global/global_var.dart';
+import 'package:taxi_booking_app/pages/dashboard.dart';
 import 'package:taxi_booking_app/pages/edit_page.dart';
 import 'package:taxi_booking_app/pages/home_page.dart';
 import 'package:taxi_booking_app/pages/profile_setting.dart';
@@ -23,27 +24,40 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Ionicons.chevron_back_outline),
-        ),
-        leadingWidth: 80,
-      ),
+   
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                "Settings",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
+              Stack(
+                        children: [
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (c) => const Dashboard()));
+                              },
+                              child: const Icon(
+                                Icons.arrow_back_outlined,
+                                color: Colors.black,
+                              )),
+                          const Center(
+                            child: Text(
+                              "Settings",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                     
+              const SizedBox(height: 20),
               const Text(
                 "Account",
                 style: TextStyle(
@@ -63,13 +77,13 @@ class _AccountScreenState extends State<AccountScreen> {
                       children: [
                         Text(
                           userName,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(height: 10),
-                        Text(
+                        const SizedBox(height: 10),
+                        const Text(
                           "RuhunaRide",
                           style: TextStyle(
                             fontSize: 14,

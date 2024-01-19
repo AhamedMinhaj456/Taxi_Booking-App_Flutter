@@ -6,11 +6,14 @@ import 'package:google_fonts/google_fonts.dart';
 Widget greenIntroWidget(){
   return Container(
     width: Get.width,
+    
+    
     decoration: const BoxDecoration(
-      image: DecorationImage(
-        image: AssetImage('assets/mask.png'),
-        fit: BoxFit.cover
-      )
+      color: Colors.blue,
+      // image: DecorationImage(
+      //   image: AssetImage('assets/mask.png'),
+      //   fit: BoxFit.cover
+      // )
     ),
     height: Get.height*0.6,
 
@@ -18,7 +21,7 @@ Widget greenIntroWidget(){
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
 
-          SvgPicture.asset('assets/leaf icon.svg'),
+          //SvgPicture.asset('assets/leaf icon.svg'),
 
           const SizedBox(
             height: 20,

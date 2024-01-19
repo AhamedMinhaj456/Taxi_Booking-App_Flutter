@@ -50,7 +50,7 @@ class _LoginScreenLastState extends State<LoginScreenLast> {
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) =>
-          LoadingDialog(messageText: "Login in your account...."),
+          LoadingDialog(messageText: "Login in your account.."),
     );
     final User? userFirebase = (await FirebaseAuth.instance
             .signInWithEmailAndPassword(
@@ -110,7 +110,7 @@ class _LoginScreenLastState extends State<LoginScreenLast> {
                     'RuhunaRide',
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 60,
+                        fontSize: 50,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -118,7 +118,7 @@ class _LoginScreenLastState extends State<LoginScreenLast> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [const SizedBox(
-                      height: 25,
+                      height: 20,
                     ),
 
                      SizedBox(
@@ -134,12 +134,12 @@ class _LoginScreenLastState extends State<LoginScreenLast> {
                       ),
                       labelText: "Email Address",
                       labelStyle: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 15,
                         color: Colors.white,
                       ),
                       hintText: "Enter Your Email Address",
                       hintStyle: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: Colors.grey,
                       ),
                       filled: true,
@@ -182,12 +182,12 @@ class _LoginScreenLastState extends State<LoginScreenLast> {
                       ),
                       labelText: "Password",
                       labelStyle: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 15,
                         color: Colors.white,
                       ),
                       hintText: "Enter Your Password",
                       hintStyle: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: Colors.grey,
                       ),
                       filled: true,
@@ -212,20 +212,23 @@ class _LoginScreenLastState extends State<LoginScreenLast> {
                     ),
                   ),
                 ),
+                const SizedBox(
+                    height: 10,
+                  ),
                   GestureDetector(
                     onTap: () => Navigator.push(context,
                   MaterialPageRoute(builder: (C) => const ForgetPasswordPage())),
                     child: const Text(
-                      'Forgot Password',
+                      'Forgot Password?',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 15,
                         color: Colors.red,
                       ),
                       
                     ),
                   ),
                   const SizedBox(
-                    height: 25,
+                    height: 20,
                   ),
                    RoundedButton(
                     
@@ -303,7 +306,7 @@ class _LoginScreenLastState extends State<LoginScreenLast> {
                     'Create New Account',
                     
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 16,
                       color: Colors.blue
                     )
                   ),

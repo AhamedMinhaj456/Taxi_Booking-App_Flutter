@@ -5,6 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:taxi_booking_app/Models/Payment.dart';
 import 'package:taxi_booking_app/authentication/login.dart';
@@ -15,6 +17,7 @@ import 'package:taxi_booking_app/pages/add_payment_card_page.dart';
 import 'package:taxi_booking_app/pages/login_window/login_screen.dart';
 import 'package:taxi_booking_app/pages/payment_page.dart';
 import 'package:taxi_booking_app/pages/search_destination.dart';
+import 'package:taxi_booking_app/pages/support_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -113,9 +116,10 @@ class _HomePageState extends State<HomePage> {
                 child: DrawerHeader(
                   decoration: const BoxDecoration(color: Colors.blue),
                   child: Row(children: [
-                    // user image or icon
+                   
+                   
                     Image.asset(
-                      "assets/images/avatarwoman.webp",
+                      "assets/images/avatarman.png",
                       width: 60,
                       height: 60,
                     ),
@@ -162,11 +166,11 @@ class _HomePageState extends State<HomePage> {
 
               //body
               GestureDetector(
-                onTap: () {},
+                onTap: () {Navigator.push(context,
+                      MaterialPageRoute(builder: (c) => const PaymentScreen()));},
                 child: ListTile(
                   leading: IconButton(
-                    onPressed: () { Navigator.push(context,
-                      MaterialPageRoute(builder: (c) => const PaymentScreen()));},
+                    onPressed: () { },
                     icon: const Icon(
                       Icons.payment,
                       color: Colors.grey,
@@ -174,7 +178,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: const Text(
                     "Payment History",
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize:13),
                   ),
                 ),
               ),
@@ -191,7 +195,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: const Text(
                     "Ride History",
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize:13),
                   ),
                 ),
               ),
@@ -208,7 +212,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: const Text(
                     "Invite Friends",
-                    style: TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize:13),
                   ),
                 ),
               ),
@@ -225,17 +229,19 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: const Text(
                     "Promo Code",
-                    style: TextStyle(color: Colors.black),
+              style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize:13),
                   ),
                 ),
               ),
 
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (c) => const AddPaymentCardScreen()));
+                },
                 child: ListTile(
                   leading: IconButton(
-                    onPressed: () { Navigator.push(context,
-                      MaterialPageRoute(builder: (c) => const AddPaymentCardScreen()));},
+                    onPressed: () { },
                     icon: const Icon(
                       Icons.credit_card,
                       color: Colors.grey,
@@ -243,17 +249,17 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: const Text(
                     "Add Card",
-                    style: TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize:13),
                   ),
                 ),
               ),
 
               GestureDetector(
-                onTap: () {},
+                onTap: () {Navigator.push(context,
+                      MaterialPageRoute(builder: (c) => const AccountScreen()));},
                 child: ListTile(
                   leading: IconButton(
-                    onPressed: () { Navigator.push(context,
-                      MaterialPageRoute(builder: (c) => const AccountScreen()));},
+                    onPressed: () { },
                     icon: const Icon(
                       Icons.settings,
                       color: Colors.grey,
@@ -261,24 +267,25 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: const Text(
                     "Settings",
-                    style: TextStyle(color: Colors.black),
+                 style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize:13),
                   ),
                 ),
               ),
 
-              GestureDetector(
-                onTap: () {},
+             GestureDetector(
+                onTap: () {Navigator.push(context,
+                      MaterialPageRoute(builder: (c) => const HelpPage()));},
                 child: ListTile(
                   leading: IconButton(
-                    onPressed: () {},
+                    onPressed: () { },
                     icon: const Icon(
                       Icons.help,
                       color: Colors.grey,
                     ),
                   ),
                   title: const Text(
-                    "Help",
-                    style: TextStyle(color: Colors.black),
+                    "Get Support",
+                  style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize:13),
                   ),
                 ),
               ),
@@ -295,7 +302,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: const Text(
                     "About Us",
-                    style: TextStyle(color: Colors.black),
+                     style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize:13),
                   ),
                 ),
               ),
@@ -318,7 +325,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: const Text(
                     "Log Out",
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize:13),
                   ),
                 ),
               ),

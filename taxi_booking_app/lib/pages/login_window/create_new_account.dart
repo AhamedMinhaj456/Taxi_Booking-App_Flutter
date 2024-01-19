@@ -99,7 +99,7 @@ class _CreateNewAccountFState extends State<CreateNewAccount> {
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) =>
-          LoadingDialog(messageText: "Registering Your account..."),
+          LoadingDialog(messageText: "Registering Your account.."),
     );
 
     final User? userFirebase = (await FirebaseAuth.instance
@@ -207,12 +207,12 @@ class _CreateNewAccountFState extends State<CreateNewAccount> {
                       ),
                       labelText: "User Name",
                       labelStyle: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 15,
                         color: Colors.white,
                       ),
                       hintText: "Enter Your User Name",
                       hintStyle: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: Colors.grey,
                       ),
                       filled: true,
@@ -254,12 +254,12 @@ class _CreateNewAccountFState extends State<CreateNewAccount> {
                       ),
                       labelText: "Phone Number",
                       labelStyle: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 15,
                         color: Colors.white,
                       ),
                       hintText: "Enter Your Phone Number",
                       hintStyle: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: Colors.grey,
                       ),
                       filled: true,
@@ -302,12 +302,12 @@ class _CreateNewAccountFState extends State<CreateNewAccount> {
                       ),
                       labelText: "Email Address",
                       labelStyle: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 15,
                         color: Colors.white,
                       ),
                       hintText: "Enter Your Email Address",
                       hintStyle: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: Colors.grey,
                       ),
                       filled: true,
@@ -350,12 +350,12 @@ class _CreateNewAccountFState extends State<CreateNewAccount> {
                       ),
                       labelText: "Password",
                       labelStyle: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 15,
                         color: Colors.white,
                       ),
                       hintText: "Enter Your Password",
                       hintStyle: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: Colors.grey,
                       ),
                       filled: true,
@@ -382,7 +382,7 @@ class _CreateNewAccountFState extends State<CreateNewAccount> {
                 ),
 
                   const SizedBox(
-                      height: 35,),
+                      height: 20,),
                     
                      RoundedButton(
                       
@@ -393,7 +393,7 @@ class _CreateNewAccountFState extends State<CreateNewAccount> {
                      ),
     
                     const SizedBox(
-                      height: 30,
+                      height: 20,
                     ),
 
                      const SizedBox(height: 20),
@@ -453,6 +453,8 @@ class _CreateNewAccountFState extends State<CreateNewAccount> {
                         const Text(
                           'Already have an account?',
                           style: kBodyText,
+                          
+                          
                         ),
                         GestureDetector(
                           onTap: () {

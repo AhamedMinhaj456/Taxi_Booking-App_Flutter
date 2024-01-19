@@ -50,7 +50,7 @@ class _DashboardState extends State<Dashboard>
       children: const [
         HomePage(),
         SearchDestination(),
-        HomeScreen(),
+        ProfileSettingScreen(),
         AccountScreen(),
         
       ],

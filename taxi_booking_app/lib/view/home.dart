@@ -78,6 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: GoogleMap(
               markers: markers,
               polylines: polyline,
+              mapType: MapType.normal,
               zoomControlsEnabled: false,
               onMapCreated: (GoogleMapController controller) {
                 myMapController = controller;
@@ -256,40 +257,40 @@ class _HomeScreenState extends State<HomeScreen> {
         width: Get.width,
         height: 50,
         padding: const EdgeInsets.only(left: 15),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
-                  spreadRadius: 4,
-                  blurRadius: 10)
-            ],
-            borderRadius: BorderRadius.circular(8)),
-        child: TextFormField(
-          controller: sourceController,
-          readOnly: true,
-          onTap: () async {
-            buildSourceSheet();
-          },
-          style: GoogleFonts.poppins(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-          decoration: InputDecoration(
-            hintText: 'From:',
-            hintStyle: GoogleFonts.poppins(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
-            suffixIcon: const Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: Icon(
-                Icons.search,
-              ),
-            ),
-            border: InputBorder.none,
-          ),
-        ),
+        // decoration: BoxDecoration(
+        //     color: Colors.white,
+        //     boxShadow: [
+        //       BoxShadow(
+        //           color: Colors.black.withOpacity(0.05),
+        //           spreadRadius: 4,
+        //           blurRadius: 10)
+        //     ],
+        //     borderRadius: BorderRadius.circular(8)),
+        // child: TextFormField(
+        //   controller: sourceController,
+        //   readOnly: true,
+        //   onTap: () async {
+        //     buildSourceSheet();
+        //   },
+        //   style: GoogleFonts.poppins(
+        //     fontSize: 16,
+        //     fontWeight: FontWeight.bold,
+        //   ),
+        //   decoration: InputDecoration(
+        //     hintText: 'From:',
+        //     hintStyle: GoogleFonts.poppins(
+        //       fontSize: 16,
+        //       fontWeight: FontWeight.bold,
+        //     ),
+        //     suffixIcon: const Padding(
+        //       padding: EdgeInsets.only(left: 10),
+        //       child: Icon(
+        //         Icons.search,
+        //       ),
+        //     ),
+        //     border: InputBorder.none,
+        //   ),
+        // ),
       ),
     );
   }

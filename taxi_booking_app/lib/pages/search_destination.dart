@@ -12,6 +12,7 @@ import 'package:taxi_booking_app/controller/auth_controller.dart';
 import 'package:taxi_booking_app/controller/polyline_handler.dart';
 import 'package:taxi_booking_app/global/global_var.dart';
 import 'package:taxi_booking_app/pages/account_page.dart';
+import 'package:taxi_booking_app/pages/confirm_page.dart';
 import 'package:taxi_booking_app/pages/dashboard.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:geocoding/geocoding.dart' as geoCoding;
@@ -904,7 +905,12 @@ buildRideConfirmationSheet() {
               children: [
                 Expanded(child: buildPaymentCardWidget()),
                 MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                     Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (c) => const ConfirmPage()));
+                  },
                   child: textWidget(
                     text: 'Confirm',
                     color: Colors.white,

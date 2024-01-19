@@ -132,7 +132,7 @@ class _LoginScreenFState extends State<LoginScreenF> {
  
   @override
   Widget build(BuildContext context) {
-    myColor = Theme.of(context).primaryColor;
+    myColor = Colors.blue;
     mediaSize = MediaQuery.of(context).size;
 
     return Container(
@@ -142,7 +142,7 @@ class _LoginScreenFState extends State<LoginScreenF> {
               image: const AssetImage("assets/images/backimg2.jpg"),
               fit: BoxFit.cover,
               colorFilter: ColorFilter.mode(
-                  myColor.withOpacity(0.2), BlendMode.dstATop))),
+                  myColor.withOpacity(0.5), BlendMode.dstATop))),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(children: [
@@ -209,16 +209,16 @@ class _LoginScreenFState extends State<LoginScreenF> {
                   
                   alignment: Alignment.center,
                   child: Text(
-                    "Welcome",
+                    "Profile",
                     style: TextStyle(
                         color: myColor,
                         fontSize: 30,
                         fontWeight: FontWeight.w900),
                   ),
                 ),
-                const SizedBox(height: 10),
-                _buildGreyText("Please Signup with your information"),
-                const SizedBox(height: 0),
+                // const SizedBox(height: 10),
+                // _buildGreyText("Please Signup with your information"),
+                // const SizedBox(height: 0),
                 
 
                 TextField(
@@ -243,44 +243,44 @@ class _LoginScreenFState extends State<LoginScreenF> {
                 const SizedBox(
                   height: 22,
                 ),
-                phoneNumberWidget(countryCode,()async{
-                final code = await countryPicker.showPicker(context: context);
-                if (code != null)  countryCode = code;
-                setState(() {
+              //   phoneNumberWidget(countryCode,()async{
+              //   final code = await countryPicker.showPicker(context: context);
+              //   if (code != null)  countryCode = code;
+              //   setState(() {
 
-                });
-              },onSubmit),
+              //   });
+              // },onSubmit),
+          
 
-
-                // TextField(
-                //   controller: phoneNumberTextEditingController,
-                //   keyboardType: TextInputType.phone,
-                //   decoration: const InputDecoration(
-                //       prefixIcon: Icon(Icons.phone),
-                //       labelText: "Phone Number",
-                //       labelStyle: TextStyle(
-                //         fontSize: 14,
-                //       ),
-                //       hintText: "Enter Your phone Number",
-                //       hintStyle: TextStyle(
-                //         fontSize: 14,
-                //         color: Colors.green,
-                //       )),
-                //   style: const TextStyle(
-                //     color: Colors.green,
-                //     fontSize: 15,
-                //   ),
-                // ),
-                // const SizedBox(
-                //   height: 22,
-                // ),
+                TextField(
+                  controller: phoneNumberTextEditingController,
+                  keyboardType: TextInputType.phone,
+                  decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.phone),
+                      labelText: "Phone Number",
+                      labelStyle: TextStyle(
+                        fontSize: 14,
+                      ),
+                      hintText: "Enter Your phone Number",
+                      hintStyle: TextStyle(
+                        fontSize: 14,
+                        color: Colors.green,
+                      )),
+                  style: const TextStyle(
+                    color: Colors.green,
+                    fontSize: 15,
+                  ),
+                ),
+                const SizedBox(
+                  height: 22,
+                ),
                 _emailPassword(),
                 const SizedBox(height: 20),
                 _buildSignUpButton(),
                 const SizedBox(height: 10),
-                _dontHaveAccount(),
-                const SizedBox(height: 0),
-                _buildOtherLogin(),
+                // _dontHaveAccount(),
+                // const SizedBox(height: 0),
+               // _buildOtherLogin(),
               ],
             )));
   }
@@ -343,28 +343,28 @@ class _LoginScreenFState extends State<LoginScreenF> {
     );
   }
 
-  Widget _dontHaveAccount() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Text(
-          "Already have an Account?",
-          style: TextStyle(color: Colors.grey),
-        ),
+  // Widget _dontHaveAccount() {
+  //   return Row(
+  //     mainAxisAlignment: MainAxisAlignment.center,
+  //     children: [
+  //       const Text(
+  //         "Already have an Account?",
+  //         style: TextStyle(color: Colors.grey),
+  //       ),
 
-        // text button
-        TextButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (C) => const LoginScreen()));
-            },
-            child: const Text(
-              "Login here",
-              style: TextStyle(color: Colors.grey),
-            ))
-      ],
-    );
-  }
+  //       // text button
+  //       TextButton(
+  //           onPressed: () {
+  //             Navigator.push(context,
+  //                 MaterialPageRoute(builder: (C) => const LoginScreen()));
+  //           },
+  //           child: const Text(
+  //             "Login here",
+  //             style: TextStyle(color: Colors.grey),
+  //           ))
+  //     ],
+  //   );
+  // }
 
   Widget _buildInputField(TextEditingController controller,
       {isPassword = false}) {
@@ -425,22 +425,22 @@ class _LoginScreenFState extends State<LoginScreenF> {
         ));
   }
 
-  Widget _buildOtherLogin() {
-    return Center(
-      child: Column(
-        children: [
-          _buildGreyText("-- Or Signup With --"),
-          const SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Tab(icon: Image.asset("assets/images/facebook.png")),
-              Tab(icon: Image.asset("assets/images/instagram.png")),
-              Tab(icon: Image.asset("assets/images/x.png")),
-            ],
-          )
-        ],
-      ),
-    );
-  }
+  // Widget _buildOtherLogin() {
+  //   return Center(
+  //     child: Column(
+  //       children: [
+  //         _buildGreyText("-- Or Signup With --"),
+  //         const SizedBox(height: 20),
+  //         Row(
+  //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //           children: [
+  //             Tab(icon: Image.asset("assets/images/facebook.png")),
+  //             Tab(icon: Image.asset("assets/images/instagram.png")),
+  //             Tab(icon: Image.asset("assets/images/x.png")),
+  //           ],
+  //         )
+  //       ],
+  //     ),
+  //   );
+  // }
 }

@@ -10,7 +10,7 @@ class Booking {
   String endingLocation = "";
   String distance = "";
   String rideCharge = "";
-  List<Customer> relatedCustomer = [];
+  List<CustomerModel> relatedCustomer = [];
 
   void displayBookingDetails() {
     // create displayBookingDetails function

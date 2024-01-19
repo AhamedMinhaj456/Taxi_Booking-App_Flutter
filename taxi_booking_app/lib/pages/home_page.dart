@@ -18,6 +18,7 @@ import 'package:taxi_booking_app/pages/login_window/login_screen.dart';
 import 'package:taxi_booking_app/pages/payment_page.dart';
 import 'package:taxi_booking_app/pages/search_destination.dart';
 import 'package:taxi_booking_app/pages/support_page.dart';
+import 'package:taxi_booking_app/view/home.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -392,7 +393,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (c) => const SearchDestination()));
+                                builder: (c) => const HomeScreen()));
                       },
                       style: ElevatedButton.styleFrom(
                           shape: const CircleBorder(),

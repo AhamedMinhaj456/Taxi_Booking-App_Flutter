@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:taxi_booking_app/authentication/signup.dart';
+import 'package:taxi_booking_app/devoloping_windows/setting_page.dart';
 import 'package:taxi_booking_app/devoloping_windows/signup.dart';
 import 'package:taxi_booking_app/firebase_options.dart';
 import 'package:flutter/material.dart';
@@ -14,13 +15,17 @@ import 'package:taxi_booking_app/onbording_components/onboarding_data.dart';
 import 'package:taxi_booking_app/pages/account_page.dart';
 import 'package:taxi_booking_app/pages/add_payment_card_page.dart';
 import 'package:taxi_booking_app/pages/add_payment_page.dart';
+import 'package:taxi_booking_app/pages/confirm_page.dart';
 import 'package:taxi_booking_app/pages/dashboard.dart';
+import 'package:taxi_booking_app/pages/profile_setting.dart';
+import 'package:taxi_booking_app/pages/profile_update.dart';
 import 'package:taxi_booking_app/pages/support_page.dart';
 import 'package:taxi_booking_app/pages/home_page.dart';
 import 'package:taxi_booking_app/pages/login_window/create_new_account.dart';
 import 'package:taxi_booking_app/pages/login_window/login_screen.dart';
 import 'package:taxi_booking_app/pages/payment_page.dart';
 import 'package:taxi_booking_app/pages/profile_page.dart';
+import 'package:taxi_booking_app/signup.dart';
 
 
 
@@ -66,6 +71,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home:  FirebaseAuth.instance.currentUser ==  null ? const OnboardingPage(): const Dashboard(),
+        //const ConfirmPage(),
         //const CreateNewAccount(),
        //const PaymentScreen()
         //const SettingPage(),

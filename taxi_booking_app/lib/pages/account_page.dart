@@ -7,6 +7,7 @@ import 'package:taxi_booking_app/pages/dashboard.dart';
 import 'package:taxi_booking_app/pages/edit_page.dart';
 import 'package:taxi_booking_app/pages/home_page.dart';
 import 'package:taxi_booking_app/pages/profile_setting.dart';
+import 'package:taxi_booking_app/pages/profile_update.dart';
 import 'package:taxi_booking_app/widgets/forward_button.dart';
 import 'package:taxi_booking_app/widgets/setting_item.dart';
 import 'package:taxi_booking_app/widgets/setting_switch.dart';
@@ -98,7 +99,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ProfileSettingScreen(),
+                            builder: (context) => const ProfileUpdate(),
                           ),
                         );
                       },

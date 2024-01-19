@@ -7,7 +7,7 @@ class OnlinePayment {
   String bankAccountNumber = "";
   String customerId = "";
   String paymentId = "";
-  List<Customer> customers = [];
+  List<CustomerModel> customers = [];
 
   void processPayment() {
     // create processPayment function

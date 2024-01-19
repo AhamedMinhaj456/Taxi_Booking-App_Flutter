@@ -24,4 +24,6 @@ class UserModel {
     bussinessAddres = LatLng(json['business_latlng'].latitude, json['business_latlng'].longitude);
     shoppingAddress = LatLng(json['shopping_latlng'].latitude, json['shopping_latlng'].longitude);
   }
+
+  toJson() {}
 }

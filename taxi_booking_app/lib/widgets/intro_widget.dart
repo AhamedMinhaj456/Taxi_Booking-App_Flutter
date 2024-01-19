@@ -53,7 +53,7 @@ Widget greenIntroWidgetWithoutLogos({String title = "Profile Settings",String? s
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(title,style: GoogleFonts.poppins(fontSize: 24,fontWeight: FontWeight.bold,color: Colors.white),),
+            Text(title,style: GoogleFonts.poppins(fontSize: 34,fontWeight: FontWeight.bold,color: Colors.white),),
             if(subtitle != null) Text(subtitle,style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w400,color: Colors.white),),
 
           ],

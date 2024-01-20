@@ -1,12 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:taxi_booking_app/devoloping_windows/setting_page.dart';
 import 'package:taxi_booking_app/global/global_var.dart';
 import 'package:taxi_booking_app/pages/dashboard.dart';
-import 'package:taxi_booking_app/pages/edit_page.dart';
-import 'package:taxi_booking_app/pages/home_page.dart';
-import 'package:taxi_booking_app/pages/profile_setting.dart';
 import 'package:taxi_booking_app/pages/profile_update.dart';
 import 'package:taxi_booking_app/widgets/forward_button.dart';
 import 'package:taxi_booking_app/widgets/setting_item.dart';

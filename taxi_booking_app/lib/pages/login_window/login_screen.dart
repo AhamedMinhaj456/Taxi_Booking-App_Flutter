@@ -8,11 +8,8 @@ import 'package:taxi_booking_app/pages/dashboard.dart';
 import 'package:taxi_booking_app/pages/forgetpw_page.dart';
 import 'package:taxi_booking_app/pages/login_window/create_new_account.dart';
 import 'package:taxi_booking_app/widgets/Login_widgets/background_image.dart';
-import 'package:taxi_booking_app/widgets/Login_widgets/password_input.dart';
 import 'package:taxi_booking_app/widgets/Login_widgets/rounded_button.dart';
-import 'package:taxi_booking_app/widgets/Login_widgets/text_field_input.dart';
 import 'package:taxi_booking_app/widgets/loading_dialog.dart';
-import './pallete.dart';
 
 class LoginScreenLast extends StatefulWidget {
   const LoginScreenLast({super.key});

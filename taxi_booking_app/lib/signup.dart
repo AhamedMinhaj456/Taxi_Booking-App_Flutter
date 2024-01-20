@@ -8,15 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:taxi_booking_app/authentication/login.dart';
-import 'package:taxi_booking_app/authentication/signup.dart';
-import 'package:taxi_booking_app/global/global_var.dart';
 import 'package:taxi_booking_app/methods/common_methods.dart';
 import 'package:taxi_booking_app/pages/dashboard.dart';
 import 'package:taxi_booking_app/pages/otp_verfication_screen.dart';
 import 'package:taxi_booking_app/widgets/loading_dialog.dart';
-import 'package:taxi_booking_app/widgets/login_widget.dart';
-import 'package:taxi_booking_app/widgets/phone_number_widget.dart';
 
 class LoginScreenF extends StatefulWidget {
   const LoginScreenF({super.key});

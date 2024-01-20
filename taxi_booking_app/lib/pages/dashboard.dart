@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:taxi_booking_app/pages/account_page.dart';
 import 'package:taxi_booking_app/pages/home_page.dart';
-import 'package:taxi_booking_app/pages/profile_page.dart';
 import 'package:taxi_booking_app/pages/profile_setting.dart';
 import 'package:taxi_booking_app/pages/search_destination.dart';
-import 'package:taxi_booking_app/pages/trips_page.dart';
-import 'package:taxi_booking_app/view/home.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});

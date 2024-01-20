@@ -1,31 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:taxi_booking_app/authentication/signup.dart';
-import 'package:taxi_booking_app/devoloping_windows/setting_page.dart';
-import 'package:taxi_booking_app/devoloping_windows/signup.dart';
 import 'package:taxi_booking_app/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:taxi_booking_app/authentication/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:taxi_booking_app/controller/auth_controller.dart';
-import 'package:taxi_booking_app/onboarding.dart';
-import 'package:taxi_booking_app/onbording_components/onboarding_data.dart';
-import 'package:taxi_booking_app/pages/account_page.dart';
-import 'package:taxi_booking_app/pages/add_payment_card_page.dart';
-import 'package:taxi_booking_app/pages/add_payment_page.dart';
-import 'package:taxi_booking_app/pages/confirm_page.dart';
 import 'package:taxi_booking_app/pages/dashboard.dart';
-import 'package:taxi_booking_app/pages/profile_setting.dart';
-import 'package:taxi_booking_app/pages/profile_update.dart';
-import 'package:taxi_booking_app/pages/support_page.dart';
-import 'package:taxi_booking_app/pages/home_page.dart';
-import 'package:taxi_booking_app/pages/login_window/create_new_account.dart';
-import 'package:taxi_booking_app/pages/login_window/login_screen.dart';
-import 'package:taxi_booking_app/pages/payment_page.dart';
-import 'package:taxi_booking_app/pages/profile_page.dart';
-import 'package:taxi_booking_app/signup.dart';
 
 
 
@@ -70,8 +50,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  FirebaseAuth.instance.currentUser ==  null ? const OnboardingPage(): const Dashboard(),
-        //const ConfirmPage(),
+      home:  //FirebaseAuth.instance.currentUser ==  null ? const OnboardingPage(): const Dashboard(),
+        const Dashboard(),
         //const CreateNewAccount(),
        //const PaymentScreen()
         //const SettingPage(),

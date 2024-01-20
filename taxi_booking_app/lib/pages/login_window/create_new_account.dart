@@ -10,17 +10,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:taxi_booking_app/global/global_var.dart';
 import 'package:taxi_booking_app/methods/common_methods.dart';
 import 'package:taxi_booking_app/pages/dashboard.dart';
 import 'package:taxi_booking_app/pages/login_window/login_screen.dart';
 import 'package:taxi_booking_app/pages/otp_verfication_screen.dart';
 import 'package:taxi_booking_app/widgets/Login_widgets/background_image.dart';
-import 'package:taxi_booking_app/widgets/Login_widgets/password_input.dart';
 import 'package:taxi_booking_app/widgets/Login_widgets/rounded_button.dart';
-import 'package:taxi_booking_app/widgets/Login_widgets/text_field_input.dart';
 import 'package:taxi_booking_app/widgets/loading_dialog.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import './pallete.dart';
 
 

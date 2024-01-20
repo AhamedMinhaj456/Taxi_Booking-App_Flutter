@@ -56,7 +56,7 @@ dependencies:
   ionicons: ^0.2.2
   theme_provider: ^0.6.0
   lottie: ^3.0.0
-
+  scroll_snap_list:
   flutter_map:
  
 

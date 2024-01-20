@@ -5,18 +5,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:taxi_booking_app/Models/Payment.dart';
-import 'package:taxi_booking_app/authentication/login.dart';
 import 'package:taxi_booking_app/global/global_var.dart';
 import 'package:taxi_booking_app/methods/common_methods.dart';
 import 'package:taxi_booking_app/pages/account_page.dart';
 import 'package:taxi_booking_app/pages/add_payment_card_page.dart';
+import 'package:taxi_booking_app/pages/invite_friends.dart';
 import 'package:taxi_booking_app/pages/login_window/login_screen.dart';
 import 'package:taxi_booking_app/pages/payment_page.dart';
-import 'package:taxi_booking_app/pages/search_destination.dart';
+import 'package:taxi_booking_app/pages/promo_page.dart';
 import 'package:taxi_booking_app/pages/support_page.dart';
 import 'package:taxi_booking_app/view/home.dart';
 
@@ -202,10 +199,15 @@ class _HomePageState extends State<HomePage> {
               ),
 
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                   Navigator.push(context,
+                      MaterialPageRoute(builder: (c) => const InviteFriends()));
+                },
                 child: ListTile(
                   leading: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                     
+                    },
                     icon: const Icon(
                       Icons.handshake,
                       color: Colors.grey,
@@ -219,7 +221,10 @@ class _HomePageState extends State<HomePage> {
               ),
 
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (c) =>  PromotionListPage()));
+                },
                 child: ListTile(
                   leading: IconButton(
                     onPressed: () {},

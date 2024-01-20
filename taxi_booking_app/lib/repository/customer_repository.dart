@@ -3,13 +3,8 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/snackbar/snackbar.dart';
-import 'package:taxi_booking_app/Models/Customer.dart';
-import 'package:taxi_booking_app/methods/user_model/user_model.dart';
-
 class UserRepository extends GetxController{
 static UserRepository get instance => Get.find();
 

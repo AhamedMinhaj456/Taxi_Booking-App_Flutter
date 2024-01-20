@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/credit_card_brand.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
-import 'package:get/get.dart';
 import 'package:taxi_booking_app/widgets/intro_widget.dart';
 
 class AddPaymentScreen extends StatefulWidget {

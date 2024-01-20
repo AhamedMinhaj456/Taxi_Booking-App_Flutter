@@ -10,7 +10,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:taxi_booking_app/controller/auth_controller.dart';
 import 'package:taxi_booking_app/controller/polyline_handler.dart';
-import 'package:taxi_booking_app/global/global_var.dart';
 import 'package:taxi_booking_app/pages/account_page.dart';
 import 'package:taxi_booking_app/pages/confirm_page.dart';
 import 'package:taxi_booking_app/pages/dashboard.dart';
@@ -980,7 +979,7 @@ buildDriverCard(bool selected) {
                     color: Colors.white,
                     fontWeight: FontWeight.w700),
                 textWidget(
-                    text: '\$9.90',
+                    text: 'Rs. 500',
                     color: Colors.white,
                     fontWeight: FontWeight.w500),
                 textWidget(

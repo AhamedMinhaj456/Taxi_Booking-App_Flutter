@@ -15,7 +15,7 @@ import 'package:taxi_booking_app/pages/login_window/login_screen.dart';
 import 'package:taxi_booking_app/pages/payment_page.dart';
 import 'package:taxi_booking_app/pages/promo_page.dart';
 import 'package:taxi_booking_app/pages/support_page.dart';
-import 'package:taxi_booking_app/view/home.dart';
+import 'package:taxi_booking_app/pages/search.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

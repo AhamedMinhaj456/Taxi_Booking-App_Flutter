@@ -13,9 +13,12 @@ class ProfileUpdate extends StatefulWidget {
 
 class _ProfileUpdateState extends State<ProfileUpdate> {
   TextEditingController nameController = TextEditingController();
-  TextEditingController homeController = TextEditingController();
-  TextEditingController businessController = TextEditingController();
-  TextEditingController shopController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController phoneNoController = TextEditingController();
+  TextEditingController genderController = TextEditingController();
+  TextEditingController userNameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AuthController authController = Get.find<AuthController>();
 
@@ -69,7 +72,7 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                     //   height: 10,
                     // ),
                     TextFieldWidget(
-                        'email', Icons.email, nameController,(String? input){
+                        'email', Icons.email, emailController,(String? input){
 
                           if(input!.isEmpty){
                             return 'Email is required!';
@@ -86,7 +89,7 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                     //   height: 10,
                     // ),
                     TextFieldWidget(
-                        'Address', Icons.location_city, nameController,(String? input){
+                        'Address', Icons.location_city, addressController,(String? input){
 
                           if(input!.isEmpty){
                             return 'Address is required!';
@@ -103,7 +106,7 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                       height: 10,
                     ),
                     TextFieldWidget(
-                        'Phone Number', Icons.phone, nameController,(String? input){
+                        'Phone Number', Icons.phone, phoneNoController,(String? input){
 
                           if(input!.isEmpty){
                             return 'Phone Number is required!';
@@ -120,7 +123,7 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                       height: 10,
                     ),
                     TextFieldWidget(
-                        'Gender', Icons.person_outlined, nameController,(String? input){
+                        'Gender', Icons.person_outlined, genderController,(String? input){
 
                           if(input!.isEmpty){
                             return 'Gender is required!';
@@ -137,7 +140,7 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                       height: 10,
                     ),
                     TextFieldWidget(
-                        'User Name', Icons.verified_user_outlined, nameController,(String? input){
+                        'User Name', Icons.verified_user_outlined, userNameController,(String? input){
 
                           if(input!.isEmpty){
                             return 'User Name is required!';
@@ -154,8 +157,8 @@ class _ProfileUpdateState extends State<ProfileUpdate> {
                       height: 10,
                     ),
                     TextFieldWidget(
-                        'Password', Icons.key, nameController,(String? input){
-
+                        'Password', Icons.key, passwordController,(String? input){
+                          
                           if(input!.isEmpty){
                             return 'Password is required!';
                           }

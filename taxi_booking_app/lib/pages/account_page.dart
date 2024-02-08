@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:taxi_booking_app/global/global_var.dart';
 import 'package:taxi_booking_app/pages/dashboard.dart';
 import 'package:taxi_booking_app/pages/profile_update.dart';
+import 'package:taxi_booking_app/pages/support_page.dart';
 import 'package:taxi_booking_app/widgets/forward_button.dart';
 import 'package:taxi_booking_app/widgets/setting_item.dart';
 import 'package:taxi_booking_app/widgets/setting_switch.dart';
@@ -21,7 +21,6 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-   
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(30),
@@ -30,30 +29,32 @@ class _AccountScreenState extends State<AccountScreen> {
             children: [
               const SizedBox(height: 20),
               Stack(
-                        children: [
-                          GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (c) => const Dashboard()));
-                              },
-                              child: const Icon(
-                                Icons.arrow_back_outlined,
-                                color: Colors.black,
-                              )),
-                          const Center(
-                            child: Text(
-                              "Settings",
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                     
+                children: [
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (c) => const Dashboard()));
+                      },
+                      child: const Icon(
+                        Icons.arrow_back_outlined,
+                        color: Colors.black,
+                      )),
+                  const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 40),
+                        child: Text(
+                          "Settings",
+                          style: TextStyle(
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ))
+                ],
+              ),
               const SizedBox(height: 20),
               const Text(
                 "Account",
@@ -67,7 +68,8 @@ class _AccountScreenState extends State<AccountScreen> {
                 width: double.infinity,
                 child: Row(
                   children: [
-                    Image.asset("assets/images/avatarman.png", width: 70, height: 70),
+                    Image.asset("assets/images/avatarman.png",
+                        width: 70, height: 70),
                     const SizedBox(width: 20),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,8 +121,6 @@ class _AccountScreenState extends State<AccountScreen> {
                 iconColor: Colors.orange,
                 value: "English",
                 onTap: () {},
-                 
-                
               ),
               const SizedBox(height: 20),
               SettingItem(
@@ -149,7 +149,12 @@ class _AccountScreenState extends State<AccountScreen> {
                 icon: Ionicons.nuclear,
                 bgColor: Colors.red.shade100,
                 iconColor: Colors.red,
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (c) => const HelpPage()));
+                },
               ),
             ],
           ),

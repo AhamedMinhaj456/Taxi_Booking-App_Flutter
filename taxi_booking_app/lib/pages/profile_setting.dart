@@ -159,7 +159,7 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    TextFieldWidget('Shopping Center',
+                    TextFieldWidget('Favorite Shopping Center',
                         Icons.shopping_cart_outlined, shopController,(String? input){
                           if(input!.isEmpty){
                             return 'Shopping Center is required!';
